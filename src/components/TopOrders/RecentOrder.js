@@ -11,11 +11,11 @@ const RecentOrder = () => {
         <Grid item xs={12} md={6} lg={6}>
           <div className="heading-chart">
             <div className="order-summary">
-              <h3>Recent Orders</h3>
+              <h3>Top Ten Products</h3>
               <Link to="/all-orders">
                 {" "}
                 <h3>
-                  All Orders{" "}
+                  All Products{" "}
                   <i className="fa-sharp fa-solid fa-arrow-right"></i>
                 </h3>
               </Link>
@@ -26,11 +26,11 @@ const RecentOrder = () => {
         <Grid item xs={12} md={6} lg={6}>
           <div className="heading-chart">
           <div className="order-summary">
-              <h3>Top Ten Products</h3>
+              <h3>Top Orders</h3>
               <Link to="/all-products">
                 {" "}
                 <h3>
-                  All Products{" "}
+                  All Orders{" "}
                   <i className="fa-sharp fa-solid fa-arrow-right"></i>
                 </h3>
               </Link>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,6 +8,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 const RecentOrderes = () => {
+  const [products, setProducts]= useState([]);
+  useEffect(()=>{
+    const url= 'http://localhost:5000/productes'
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>setProducts(data))
+  },[])
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {
           backgroundColor: theme.palette.common.black,
@@ -28,42 +35,36 @@ const RecentOrderes = () => {
         },
       }));
       
-      function createData(invoice, name, Order, status, total) {
-        return { invoice, name, Order, status, total,  };
-      }
+   
       
-      const rows = [
-        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-        createData('Eclair', 262, 16.0, 24, 6.0),
-        createData('Cupcake', 305, 3.7, 67, 4.3),
-        createData('Gingerbread', 356, 16.0, 49, 3.9),
-      ];
+
     return (
         <div>
             <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Invoice</StyledTableCell>
-            <StyledTableCell>Customer Name</StyledTableCell>
-            <StyledTableCell align="right">Order Date</StyledTableCell>
+            <StyledTableCell>Id</StyledTableCell>
+            <StyledTableCell>Product Name</StyledTableCell>
+            <StyledTableCell align="right">Create Date</StyledTableCell>
+            <StyledTableCell align="right">SKU</StyledTableCell>
+            <StyledTableCell align="right">Total Price</StyledTableCell>
             <StyledTableCell align="right">Status</StyledTableCell>
-            <StyledTableCell align="right">Total</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.invoice}>
+          {products.slice(0,11).map((manageTable) => (
+            <StyledTableRow key={manageTable._id}>
               <StyledTableCell component="th" scope="row">
-                {row.invoice}
+                {manageTable._id}
               </StyledTableCell>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {manageTable.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.Order}</StyledTableCell>
-              <StyledTableCell align="right">{row.status}</StyledTableCell>
-              <StyledTableCell align="right">{row.total}</StyledTableCell>
+              <StyledTableCell align="right">{manageTable.newDate}</StyledTableCell>
+              <StyledTableCell align="right">{manageTable.sku}</StyledTableCell>
+              <StyledTableCell align="right">{manageTable.price}</StyledTableCell>
+              <StyledTableCell align="right">{manageTable.status}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
