@@ -17,13 +17,14 @@ const MyManage = ({prouct}) => {
         height="140"
         image={`data:image/jpeg;base64,${imageTwo}`}
         alt="green iguana"
+
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>
       </CardContent>
-     
+    
     </Card>
         </div>
     );

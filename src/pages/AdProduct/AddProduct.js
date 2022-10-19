@@ -60,7 +60,7 @@ const AddProduct = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log(data);
+          alert("data inserted");
           e.target.reset();
         }
       })

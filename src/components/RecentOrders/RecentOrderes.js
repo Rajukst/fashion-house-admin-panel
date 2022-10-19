@@ -45,15 +45,15 @@ const RecentOrderes = () => {
         <TableHead>
           <TableRow>
             <StyledTableCell>Id</StyledTableCell>
-            <StyledTableCell>Product Name</StyledTableCell>
-            <StyledTableCell align="right">Create Date</StyledTableCell>
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="right">Date</StyledTableCell>
             <StyledTableCell align="right">SKU</StyledTableCell>
             <StyledTableCell align="right">Total Price</StyledTableCell>
             <StyledTableCell align="right">Status</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {products.slice(0,11).map((manageTable) => (
+          {products.slice(5,10).map((manageTable) => (
             <StyledTableRow key={manageTable._id}>
               <StyledTableCell component="th" scope="row">
                 {manageTable._id}
@@ -64,7 +64,7 @@ const RecentOrderes = () => {
               <StyledTableCell align="right">{manageTable.newDate}</StyledTableCell>
               <StyledTableCell align="right">{manageTable.sku}</StyledTableCell>
               <StyledTableCell align="right">{manageTable.price}</StyledTableCell>
-              <StyledTableCell align="right">{manageTable.status}</StyledTableCell>
+              <StyledTableCell align="right"><button>{manageTable.status}</button></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
