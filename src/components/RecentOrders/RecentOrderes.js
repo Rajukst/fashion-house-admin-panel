@@ -10,8 +10,7 @@ import Paper from '@mui/material/Paper';
 const RecentOrderes = () => {
   const [products, setProducts]= useState([]);
   useEffect(()=>{
-    const url= 'https://fashion-house-server.vercel.app/products'
-    fetch(url)
+    fetch('https://fashion-house-server.vercel.app/products')
     .then(res=>res.json())
     .then(data=>setProducts(data))
   },[])
@@ -34,10 +33,6 @@ const RecentOrderes = () => {
           border: 0,
         },
       }));
-      
-   
-      
-
     return (
         <div>
             <TableContainer component={Paper}>
