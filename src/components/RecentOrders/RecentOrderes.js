@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 const RecentOrderes = () => {
   const [products, setProducts]= useState([]);
   useEffect(()=>{
-    const url= 'https://fashion-house-server.vercel.app/productes'
+    const url= 'https://fashion-house-server.vercel.app/products'
     fetch(url)
     .then(res=>res.json())
     .then(data=>setProducts(data))
@@ -46,10 +46,8 @@ const RecentOrderes = () => {
           <TableRow>
             <StyledTableCell>Id</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
-            <StyledTableCell align="right">SKU</StyledTableCell>
             <StyledTableCell align="right">Total Price</StyledTableCell>
-            <StyledTableCell align="right">Status</StyledTableCell>
+            <StyledTableCell align="right">Description</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -61,10 +59,8 @@ const RecentOrderes = () => {
               <StyledTableCell component="th" scope="row">
                 {manageTable.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{manageTable.newDate}</StyledTableCell>
-              <StyledTableCell align="right">{manageTable.sku}</StyledTableCell>
-              <StyledTableCell align="right">{manageTable.price}</StyledTableCell>
-              <StyledTableCell align="right"><button>{manageTable.status}</button></StyledTableCell>
+              <StyledTableCell align="right">{manageTable.priceOne}</StyledTableCell>
+              <StyledTableCell align="right"><button>{manageTable.description.slice(0,20)}</button></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
