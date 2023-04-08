@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 const RecentOrderes = () => {
   const [products, setProducts]= useState([]);
   useEffect(()=>{
-    const url= 'http://localhost:5000/productes'
+    const url= 'https://fashion-house-server.vercel.app/productes'
     fetch(url)
     .then(res=>res.json())
     .then(data=>setProducts(data))

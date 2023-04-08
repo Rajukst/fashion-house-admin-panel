@@ -5,7 +5,7 @@ import MyManage from './MyManage';
 const ManageProduct = () => {
     const [doctors, setDoctors]= useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/productes')
+        fetch('https://fashion-house-server.vercel.app/products')
         .then(res=>res.json())
         .then(data=>setDoctors(data))
     },[])
